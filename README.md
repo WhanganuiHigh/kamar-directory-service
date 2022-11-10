@@ -27,7 +27,14 @@ You MUST make sure you are authenticating requests to your application.
 
 ## Storage
 The example implementation will write json data files at `/storage/app/data`. These files are not publicly accessible by default.
-Consider a task to tidy up these files once processed.
+
+## Commands & Schedules
+A `RemoveOldDataFiles` command is available that will remove files older than 3 days.
+A schedule to run the command daily is also configured (`/app/Console/Kernel.php`)
+
+Run the command manually with `php artisan KamarDS:removeOldDataFiles`, or configure a cron job to run the task as per the schedule.
+
+For information on configuring a schedule, see https://laravel.com/docs/9.x/scheduling#running-the-scheduler
 
 ## Testing
 Run tests with `php artisan test`
