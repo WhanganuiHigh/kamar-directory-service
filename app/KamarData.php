@@ -7,6 +7,20 @@ use Illuminate\Support\Facades\Storage;
 
 class KamarData
 {
+    const SYNC_TYPE_CHECK = 'check';
+    const SYNC_TYPE_PART = 'part';
+    const SYNC_TYPE_FULL = 'full';
+    const SYNC_TYPE_ASSESSMENTS ='assessments';
+    const SYNC_TYPE_ATTENDANCE ='attendance';
+    const SYNC_TYPE_BOOKINGS ='bookings';
+    const SYNC_TYPE_CALENDAR ='calendar';
+    const SYNC_TYPE_NOTICES ='notices';
+    const SYNC_TYPE_PASTORAL ='pastoral';
+    const SYNC_TYPE_PHOTOS ='photos';
+    const SYNC_TYPE_STAFFPHOTOS ='staffphotos';
+    const SYNC_TYPE_STUDENTTIMETABLES ='studenttimetables';
+    const SYNC_TYPE_STAFFTIMETABLES ='stafftimetables';
+
     public $data;
     public $format = 'json';
 
@@ -14,7 +28,7 @@ class KamarData
     {
         return $this->format == 'json'
         ? empty(data_get($this->data, 'SMSDirectoryData'))
-        : empty($this->data);
+        : $this->data->isEmpty();
     }
 
     public function getSyncType()
@@ -26,17 +40,17 @@ class KamarData
 
     public function isSyncCheck()
     {
-        return $this->getSyncType() === "check";
+        return $this->getSyncType() === self::SYNC_TYPE_CHECK;
     }
 
     public function isSyncPart()
     {
-        return $this->getSyncType() === "part";
+        return $this->getSyncType() === self::SYNC_TYPE_PART;
     }
 
     public function isSyncFull()
     {
-        return $this->getSyncType() === "full";
+        return $this->getSyncType() === self::SYNC_TYPE_FULL;
     }
 
     public function store()
@@ -61,7 +75,7 @@ class KamarData
         if (request()->isJson()) {
             $kamarData->data = collect(request()->input());
         } elseif (request()->isXml()) {
-            $kamarData->data = collect(request()->xml(true));
+            $kamarData->data = request()->getContent() > '' ? collect( request()->xml(true)) : collect([]);
             $kamarData->format = 'xml';
         } else {
             throw new Exception("Invalid content");

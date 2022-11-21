@@ -6,7 +6,6 @@ use Illuminate\Contracts\Support\Arrayable;
 
 abstract class AbstractResponse implements Arrayable
 {
-    
     protected string $service;
     protected float $version;
     protected int $error = 501;

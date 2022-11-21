@@ -5,7 +5,6 @@ namespace App\Responses;
 use Stringable;
 use Spatie\ArrayToXml\ArrayToXml;
 
-
 abstract class AbstractXMLResponse implements Stringable
 {
     protected string $service;

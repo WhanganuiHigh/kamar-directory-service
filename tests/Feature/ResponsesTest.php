@@ -2,173 +2,80 @@
 
 namespace Tests\Feature;
 
+use App\Responses\Check\Success as CheckSuccess;
+use App\Responses\Standard\FailedAuthentication;
+use App\Responses\Standard\MissingData;
+use App\Responses\Standard\Success;
 use Tests\TestCase;
 
 class ResponsesTest extends TestCase
 {
     public function test_unauthenticated_standard_requests_return_403()
     {
-        $response = $this->postJson('/kamar');
+        $response = $this->postJson(route('kamar'));
 
-        $response->assertJson([
-            'SMSDirectoryData' => [
-                'error' => 403,
-                'result' => 'Forbidden',
-            ]
-        ]);
-
-        $response->assertJsonMissing([
-            'SMSDirectoryData' => [
-                'service' => config('kamar.serviceName'),
-                'version' => config('kamar.serviceVersion')
-            ]
-        ]);
+        $response->assertJson((new FailedAuthentication())->toArray());
     }
 
     public function test_unauthenticated_check_requests_return_403_with_service_details()
     {
-        $response = $this->postJson('/kamar', [
-            'SMSDirectoryData' => [
-                'sync' => 'check'
-            ]
-        ]);
+        $response = $this->postJson(route('kamar'), $this->checkRequest());
 
-        $response->assertJson([
-            'SMSDirectoryData' => [
-                'error' => 403,
-                'result' => 'Forbidden',
-                'service' => config('kamar.serviceName'),
-                'version' => config('kamar.serviceVersion'),
-            ]
-        ]);
+        $response->assertJson((new FailedAuthentication())->toArray());
     }
 
     public function test_standard_requests_with_invalid_credentials_return_403()
     {
         $response = $this->withHeaders([
             'HTTP_AUTHORIZATION' => $this->invalidCredentials(),
-        ])->postJson('/kamar');
+        ])->postJson(route('kamar'));
 
-        $response->assertJson([
-            'SMSDirectoryData' => [
-                'error' => 403,
-                'result' => 'Forbidden',
-            ]
-        ]);
-
-        $response->assertJsonMissing([
-            'SMSDirectoryData' => [
-                'service' => config('kamar.serviceName'),
-                'version' => config('kamar.serviceVersion')
-            ]
-        ]);
+        $response->assertJson((new FailedAuthentication())->toArray());
     }
 
     public function test_check_requests_with_invalid_credentials_return_403_with_service_details()
     {
         $response = $this->withHeaders([
             'HTTP_AUTHORIZATION' => $this->invalidCredentials(),
-        ])->postJson('/kamar', [
-            'SMSDirectoryData' => [
-                'sync' => 'check'
-            ]
-        ]);
+        ])->postJson(route('kamar'), $this->checkRequest());
 
-        $response->assertJson([
-            'SMSDirectoryData' => [
-                'error' => 403,
-                'result' => 'Forbidden',
-                'service' => config('kamar.serviceName'),
-                'version' => config('kamar.serviceVersion'),
-            ]
-        ]);
+        $response->assertJson((new FailedAuthentication())->toArray());
     }
 
     public function test_authenticated_standard_requests_with_blank_data_return_400()
     {
         $response = $this->withHeaders([
             'HTTP_AUTHORIZATION' => $this->validCredentials(),
-        ])->postJson('/kamar');
+        ])->postJson(route('kamar'));
 
-        $response->assertJson([
-            'SMSDirectoryData' => [
-                'error' => 400,
-                'result' => 'Bad Request',
-            ]
-        ]);
-
-        $response->assertJsonMissing([
-            'SMSDirectoryData' => [
-                'service' => config('kamar.serviceName'),
-                'version' => config('kamar.serviceVersion')
-            ]
-        ]);
+        $response->assertJson((new MissingData())->toArray());
     }
 
     public function test_authenticated_standard_requests_with_empty_data_return_400()
     {
         $response = $this->withHeaders([
             'HTTP_AUTHORIZATION' => $this->validCredentials(),
-        ])->postJson('/kamar', []);
+        ])->postJson(route('kamar'), []);
 
-        $response->assertJson([
-            'SMSDirectoryData' => [
-                'error' => 400,
-                'result' => 'Bad Request',
-            ]
-        ]);
-
-        $response->assertJsonMissing([
-            'SMSDirectoryData' => [
-                'service' => config('kamar.serviceName'),
-                'version' => config('kamar.serviceVersion')
-            ]
-        ]);
+        $response->assertJson((new MissingData())->toArray());
     }
 
     public function test_authenticated_check_requests_return_0_and_service_details()
     {
         $response = $this->withHeaders([
             'HTTP_AUTHORIZATION' => $this->validCredentials(),
-        ])->postJson('/kamar', [
-            'SMSDirectoryData' => [
-                'sync' => 'check'
-            ]
-        ]);
+        ])->postJson(route('kamar'), $this->checkRequest());
 
-        $response->assertJson([
-            'SMSDirectoryData' => [
-                'error' => 0,
-                'result' => 'OK',
-                'service' => config('kamar.serviceName'),
-                'version' => config('kamar.serviceVersion'),
-            ]
-        ]);
+        $response->assertJson((new CheckSuccess())->toArray());
     }
 
     public function test_authenticated_standard_requests_return_0()
     {
         $response = $this->withHeaders([
             'HTTP_AUTHORIZATION' => $this->validCredentials(),
-        ])->postJson('/kamar', [
-            'SMSDirectoryData' => [
-                'sync' => 'part'
-            ]
-        ]);
+        ])->postJson(route('kamar'), $this->partRequest());
 
-        $response->assertJson([
-            'SMSDirectoryData' => [
-                'error' => 0,
-                'result' => 'OK',
-            ]
-        ]);
-
-        $response->assertJsonMissing([
-            'SMSDirectoryData' => [
-                'service' => config('kamar.serviceName'),
-                'version' => config('kamar.serviceVersion')
-            ]
-        ]);
+        $response->assertJson((new Success())->toArray());
     }
 
     private function validCredentials()
@@ -179,5 +86,23 @@ class ResponsesTest extends TestCase
     private function invalidCredentials()
     {
         return "Basic " . base64_encode('username' . ':' . 'password');
+    }
+
+    private function partRequest()
+    {
+        return [
+            'SMSDirectoryData' => [
+                'sync' => 'part'
+            ]
+            ];
+    }
+
+    private function checkRequest()
+    {
+        return [
+            'SMSDirectoryData' => [
+                'sync' => 'check'
+            ]
+            ];
     }
 }

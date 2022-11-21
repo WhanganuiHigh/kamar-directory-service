@@ -40,7 +40,6 @@ class HandleKamarPost extends Controller
             }
         }
 
-
         // Check if a 'check' sync, return check response.
         if ($this->data->isSyncCheck()) {
             if ($this->data->isJson()) {
