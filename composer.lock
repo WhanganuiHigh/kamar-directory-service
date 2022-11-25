@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "33a96bc4904009a764bd07fcc12e83a1",
+    "content-hash": "1f672963f3a1d819e9748419a4e96695",
     "packages": [
         {
             "name": "brick/math",
@@ -899,16 +899,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v9.40.1",
+            "version": "v9.41.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "9611fdaf2db5759b8299802d7185bcdbee0340bb"
+                "reference": "cc902ce61b4ca08ca7449664cfab2fa96a1d1e28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/9611fdaf2db5759b8299802d7185bcdbee0340bb",
-                "reference": "9611fdaf2db5759b8299802d7185bcdbee0340bb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/cc902ce61b4ca08ca7449664cfab2fa96a1d1e28",
+                "reference": "cc902ce61b4ca08ca7449664cfab2fa96a1d1e28",
                 "shasum": ""
             },
             "require": {
@@ -1081,7 +1081,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-11-15T16:13:22+00:00"
+            "time": "2022-11-22T15:10:46+00:00"
         },
         {
             "name": "laravel/sanctum",
@@ -1995,25 +1995,25 @@
         },
         {
             "name": "nette/schema",
-            "version": "v1.2.2",
+            "version": "v1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/schema.git",
-                "reference": "9a39cef03a5b34c7de64f551538cbba05c2be5df"
+                "reference": "abbdbb70e0245d5f3bf77874cea1dfb0c930d06f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/schema/zipball/9a39cef03a5b34c7de64f551538cbba05c2be5df",
-                "reference": "9a39cef03a5b34c7de64f551538cbba05c2be5df",
+                "url": "https://api.github.com/repos/nette/schema/zipball/abbdbb70e0245d5f3bf77874cea1dfb0c930d06f",
+                "reference": "abbdbb70e0245d5f3bf77874cea1dfb0c930d06f",
                 "shasum": ""
             },
             "require": {
                 "nette/utils": "^2.5.7 || ^3.1.5 ||  ^4.0",
-                "php": ">=7.1 <8.2"
+                "php": ">=7.1 <8.3"
             },
             "require-dev": {
                 "nette/tester": "^2.3 || ^2.4",
-                "phpstan/phpstan-nette": "^0.12",
+                "phpstan/phpstan-nette": "^1.0",
                 "tracy/tracy": "^2.7"
             },
             "type": "library",
@@ -2051,9 +2051,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nette/schema/issues",
-                "source": "https://github.com/nette/schema/tree/v1.2.2"
+                "source": "https://github.com/nette/schema/tree/v1.2.3"
             },
-            "time": "2021-10-15T11:40:02+00:00"
+            "time": "2022-10-13T01:24:26+00:00"
         },
         {
             "name": "nette/utils",
@@ -3014,21 +3014,21 @@
         },
         {
             "name": "spatie/array-to-xml",
-            "version": "3.1.3",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/array-to-xml.git",
-                "reference": "14ac461c1a97a14ab4656f3c1edfcfd776cbb37b"
+                "reference": "670ede8c579207f6d1b65f3405edb2dfd1c34722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/array-to-xml/zipball/14ac461c1a97a14ab4656f3c1edfcfd776cbb37b",
-                "reference": "14ac461c1a97a14ab4656f3c1edfcfd776cbb37b",
+                "url": "https://api.github.com/repos/spatie/array-to-xml/zipball/670ede8c579207f6d1b65f3405edb2dfd1c34722",
+                "reference": "670ede8c579207f6d1b65f3405edb2dfd1c34722",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
-                "php": "^8.0"
+                "php": "^8.0 || ^8.1 || ^8.2"
             },
             "require-dev": {
                 "mockery/mockery": "^1.2",
@@ -3061,7 +3061,7 @@
                 "xml"
             ],
             "support": {
-                "source": "https://github.com/spatie/array-to-xml/tree/3.1.3"
+                "source": "https://github.com/spatie/array-to-xml/tree/3.1.4"
             },
             "funding": [
                 {
@@ -3073,7 +3073,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-05-08T20:26:48+00:00"
+            "time": "2022-11-24T00:22:29+00:00"
         },
         {
             "name": "symfony/console",
@@ -5603,6 +5603,77 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.11.0"
             },
             "time": "2022-06-03T18:03:27+00:00"
+        },
+        {
+            "name": "wing5wong/kamar-directory-services",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wing5wong/kamar-directory-services.git",
+                "reference": "13b3abea908ee29a0074cd62d6f9ad29bca19405"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wing5wong/kamar-directory-services/zipball/13b3abea908ee29a0074cd62d6f9ad29bca19405",
+                "reference": "13b3abea908ee29a0074cd62d6f9ad29bca19405",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~9",
+                "illuminate/filesystem": "~9",
+                "illuminate/routing": "~9",
+                "illuminate/support": "~9",
+                "mtownsend/request-xml": "^2.2",
+                "mtownsend/response-xml": "^2.1",
+                "php": "^8.0.2",
+                "spatie/array-to-xml": "^3.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~7",
+                "phpunit/phpunit": "~9.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Wing5wong\\KamarDirectoryServices\\KamarDirectoryServicesServiceProvider"
+                    ],
+                    "aliases": {
+                        "KamarDirectoryServices": "Wing5wong\\KamarDirectoryServices\\Facades\\KamarDirectoryServices"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wing5wong\\KamarDirectoryServices\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Wing5wong\\KamarDirectoryServices\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sean Anderson",
+                    "email": "wing5wong@hotmail.com"
+                }
+            ],
+            "description": "Kamar Directory Service functionality for your Laravel app",
+            "homepage": "https://github.com/wing5wong/kamar-directory-service",
+            "keywords": [
+                "KamarDirectoryService",
+                "Laravel"
+            ],
+            "support": {
+                "source": "https://github.com/wing5wong/kamar-directory-services/tree/main",
+                "issues": "https://github.com/wing5wong/kamar-directory-services/issues"
+            },
+            "time": "2022-11-25T02:01:55+00:00"
         }
     ],
     "packages-dev": [
@@ -5866,17 +5937,83 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
-            "name": "laravel/sail",
-            "version": "v1.16.2",
+            "name": "jeroen-g/laravel-packager",
+            "version": "2.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/sail.git",
-                "reference": "7d1ed5f856ec8b9708712e3fc0708fcabe114659"
+                "url": "https://github.com/Jeroen-G/laravel-packager.git",
+                "reference": "27bddbe896a753ddbb4cf38ae799baa3ba66d3d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/sail/zipball/7d1ed5f856ec8b9708712e3fc0708fcabe114659",
-                "reference": "7d1ed5f856ec8b9708712e3fc0708fcabe114659",
+                "url": "https://api.github.com/repos/Jeroen-G/laravel-packager/zipball/27bddbe896a753ddbb4cf38ae799baa3ba66d3d6",
+                "reference": "27bddbe896a753ddbb4cf38ae799baa3ba66d3d6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-zip": "*",
+                "guzzlehttp/guzzle": "~7",
+                "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": ">=3.8",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "suggest": {
+                "sensiolabs/security-checker": "Required to use the security check command"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JeroenG\\Packager\\PackagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JeroenG\\Packager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "EUPL-1.1"
+            ],
+            "authors": [
+                {
+                    "name": "JeroenG",
+                    "email": "jeroengjeroeng@gmail.com",
+                    "homepage": "https://github.com/Jeroen-G"
+                }
+            ],
+            "description": "A cli tool for creating Laravel packages.",
+            "homepage": "https://github.com/Jeroen-G/laravel-packager",
+            "keywords": [
+                "Skeleton",
+                "laravel",
+                "package",
+                "packager"
+            ],
+            "support": {
+                "issues": "https://github.com/Jeroen-G/laravel-packager/issues",
+                "source": "https://github.com/Jeroen-G/laravel-packager/tree/2.8.0"
+            },
+            "time": "2022-02-09T18:40:02+00:00"
+        },
+        {
+            "name": "laravel/sail",
+            "version": "v1.16.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/sail.git",
+                "reference": "0dbee8802e17911afbe29a8506316343829b056e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/sail/zipball/0dbee8802e17911afbe29a8506316343829b056e",
+                "reference": "0dbee8802e17911afbe29a8506316343829b056e",
                 "shasum": ""
             },
             "require": {
@@ -5923,7 +6060,7 @@
                 "issues": "https://github.com/laravel/sail/issues",
                 "source": "https://github.com/laravel/sail"
             },
-            "time": "2022-09-28T13:13:22+00:00"
+            "time": "2022-11-21T16:19:18+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -6257,16 +6394,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.2.18",
+            "version": "9.2.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "12fddc491826940cf9b7e88ad9664cf51f0f6d0a"
+                "reference": "c77b56b63e3d2031bd8997fcec43c1925ae46559"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/12fddc491826940cf9b7e88ad9664cf51f0f6d0a",
-                "reference": "12fddc491826940cf9b7e88ad9664cf51f0f6d0a",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/c77b56b63e3d2031bd8997fcec43c1925ae46559",
+                "reference": "c77b56b63e3d2031bd8997fcec43c1925ae46559",
                 "shasum": ""
             },
             "require": {
@@ -6322,7 +6459,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.18"
+                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/9.2.19"
             },
             "funding": [
                 {
@@ -6330,7 +6467,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-10-27T13:35:33+00:00"
+            "time": "2022-11-18T07:47:47+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -7988,12 +8125,14 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "wing5wong/kamar-directory-services": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\{AuthenticationCheck, KamarData};
+use App\KamarData;
+use App\Auth\AuthenticationCheck;
 use App\Responses\Check\Success as CheckSuccess;
 use App\Responses\Check\XMLSuccess as XMLCheckSuccess;
 use App\Responses\Standard\{Success, FailedAuthentication, MissingData};
